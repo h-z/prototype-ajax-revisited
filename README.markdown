@@ -5,10 +5,10 @@ If more of the same name waits for a request, only the last one will be run.
 <code>
   Ajax.addRequest({
   	requestURL: url + "?action=show",
-  	callBack: 'show',
-  	postParams: [['id', id]],
+	callBack: 'show',
+	postParams: [['id', id]],
   	callbackParams: [['show', 'show']],
-  	cache: false,
+	cache: false,
   	name: 'show' + id
   });
 

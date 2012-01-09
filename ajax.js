@@ -1,4 +1,4 @@
-var BigCompany = {};
+var HZ = {};
 
 /**
  * Class used for sending XMLHttp requests.
@@ -7,7 +7,7 @@ var BigCompany = {};
  * their response can be cached.
  * If more of the same name waits for a request, only the last one will be run.
  */
-BigCompany.Ajax = {
+HZ.Ajax = {
 	//cached responses
 	cache: {},
 
@@ -124,14 +124,14 @@ BigCompany.Ajax = {
 				onSuccess: function(transport) {
 					//saving response into cache
 					transport.timestamp = (new Date()).getTime();
-					BigCompany.Ajax.cache[f] = transport;
-					BigCompany.Ajax.run(request, transport.responseText);
-					BigCompany.Ajax.requestPool.shift();
-					BigCompany.Ajax.processRequest();
+					HZ.Ajax.cache[f] = transport;
+					HZ.Ajax.run(request, transport.responseText);
+					HZ.Ajax.requestPool.shift();
+					HZ.Ajax.processRequest();
 				},
 				onException: function(req, ex) {
-					BigCompany.Ajax.requestPool.shift();
-					BigCompany.Ajax.processRequest();
+					HZ.Ajax.requestPool.shift();
+					HZ.Ajax.processRequest();
 				}
 			});
 		}
